@@ -27,4 +27,39 @@ class MultiIntIterableCommonTest {
         assertEquals(1, values[0])
         assertEquals(2, values[1])
     }
+
+    @Test
+    fun verifyMultiIntIterableInlineForEach() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val values = mutableListOf<Int>()
+        singleIntIterable.inlineForEach { value -> values.add(value) }
+        assertEquals(2, values.size)
+        assertEquals(1, values[0])
+        assertEquals(2, values[1])
+    }
+
+    @Test
+    fun verifyMultiIntIterableMap() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val values = singleIntIterable.map { value -> value + 1 }
+        assertEquals(2, values.size)
+        assertEquals(2, values[0])
+        assertEquals(3, values[1])
+    }
+
+    @Test
+    fun verifyMultiIntIterableInlineMap() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val newValues = singleIntIterable.inlineMap { value -> value + 1 }
+        val values = mutableListOf<Int>()
+        for (value in newValues) {
+            values.add(value)
+        }
+        assertEquals(2, values.size)
+        assertEquals(2, values[0])
+        assertEquals(3, values[1])
+    }
 }

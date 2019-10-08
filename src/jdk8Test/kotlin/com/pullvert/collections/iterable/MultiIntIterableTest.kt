@@ -17,12 +17,11 @@ class MultiIntIterableTest {
         assertEquals(2, values[1])
     }
 
-    @Ignore
     @Test
     fun verifyMultiIntIterableSerializable() {
         val initialValue = intArrayOf(1, 2)
         val original = MultiIntIterable(initialValue)
         val copy = SerializationUtils.clone(original)
-        assertEquals(original, copy)
+        assertTrue(original.array.contentEquals(copy.array))
     }
 }
