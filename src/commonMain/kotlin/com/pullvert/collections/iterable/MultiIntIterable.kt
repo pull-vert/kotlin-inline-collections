@@ -27,3 +27,12 @@ inline fun MultiIntIterable.inlineMap(transform: (Int) -> Int): MultiIntIterable
     }
     return MultiIntIterable(newArray)
 }
+
+/**
+ * Accumulates value starting with [initial] value and applying [operation] from left to right to current accumulator value and each element.
+ */
+inline fun <T> MultiIntIterable.inlineFold(initial: T, operation: (acc: T, Int) -> T): T {
+    var accumulator = initial
+    for (element in array) accumulator = operation(accumulator, element)
+    return accumulator
+}

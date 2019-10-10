@@ -62,4 +62,29 @@ class MultiIntIterableCommonTest {
         assertEquals(2, values[0])
         assertEquals(3, values[1])
     }
+
+    @Test
+    fun verifyMultiIntIterableFold() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val result = singleIntIterable.fold(0) { result: Int, value: Int -> result + value }
+        assertEquals(3, result)
+    }
+
+    @Test
+    fun verifyMultiIntIterableInlineFold() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val result = singleIntIterable.inlineFold(0) { result: Int, value: Int -> result + value }
+        assertEquals(3, result)
+    }
+
+    @Test
+    fun verifyMultiIntIterableFilter() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val values = singleIntIterable.filter { value -> value % 2 == 0 }
+        assertEquals(1, values.size)
+        assertEquals(2, values[0])
+    }
 }
