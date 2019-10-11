@@ -6,3 +6,7 @@
 //}
 
 rootProject.name = 'kotlin-inline-collections'
+
+include 'benchmarks'
+
+include 'multiplatform'
