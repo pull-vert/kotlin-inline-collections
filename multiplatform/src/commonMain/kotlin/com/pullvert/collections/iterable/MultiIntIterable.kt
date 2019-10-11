@@ -10,6 +10,22 @@ expect inline class MultiIntIterable @PublishedApi internal constructor(
 }
 
 /**
+ * build an array from the given range, and wrap it in a [MultiIntIterable]
+ */
+public inline fun IntRange.toInlineIntIterable(): MultiIntIterable {
+    val intArray = IntArray(endInclusive - start + 1)
+    for ((index, value) in this.withIndex()) {
+        intArray[index] = value
+    }
+    return MultiIntIterable(intArray)
+}
+
+/**
+ * wrap the given array in a [MultiIntIterable]
+ */
+public inline fun IntArray.toInlineIntIterable() = MultiIntIterable(this)
+
+/**
  * Performs the given [action] on each element directly in the original array.
  */
 inline fun MultiIntIterable.inlineForEach(action: (Int) -> Unit) {

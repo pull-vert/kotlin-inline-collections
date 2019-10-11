@@ -8,8 +8,8 @@ class MultiIntIterableTest {
     @Test
     fun verifyMultiIntIterableSpliterator() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
-        val spliterator = singleIntIterable.spliterator()
+        val intIterable = MultiIntIterable(initialValue)
+        val spliterator = intIterable.spliterator()
         val values = mutableListOf<Int>()
         spliterator.forEachRemaining { value -> values.add(value) }
         assertEquals(2, values.size)

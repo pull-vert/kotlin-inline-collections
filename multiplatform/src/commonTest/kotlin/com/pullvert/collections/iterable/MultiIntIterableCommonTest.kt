@@ -18,6 +18,19 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
+    fun verifyRangeToMultiIntIterable() {
+        val initialValue = 1..2
+        val intIterable = initialValue.toInlineIntIterable()
+        val values = mutableListOf<Int>()
+        for (value in intIterable) {
+            values.add(value)
+        }
+        assertEquals(2, values.size)
+        assertEquals(1, values[0])
+        assertEquals(2, values[1])
+    }
+
+    @Test
     fun verifyMultiIntIterableForEach() {
         val initialValue = intArrayOf(1, 2)
         val singleIntIterable = MultiIntIterable(initialValue)
