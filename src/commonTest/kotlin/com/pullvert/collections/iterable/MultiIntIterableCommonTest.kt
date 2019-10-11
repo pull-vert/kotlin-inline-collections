@@ -87,4 +87,17 @@ class MultiIntIterableCommonTest {
         assertEquals(1, values.size)
         assertEquals(2, values[0])
     }
+
+    @Test
+    fun verifyMultiIntIterableInlineFilter() {
+        val initialValue = intArrayOf(1, 2)
+        val singleIntIterable = MultiIntIterable(initialValue)
+        val newValues = singleIntIterable.inlineFilter { value -> value % 2 == 0 }
+        val values = mutableListOf<Int>()
+        for (value in newValues) {
+            values.add(value)
+        }
+        assertEquals(1, values.size)
+        assertEquals(2, values[0])
+    }
 }

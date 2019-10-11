@@ -36,3 +36,17 @@ inline fun <T> MultiIntIterable.inlineFold(initial: T, operation: (acc: T, Int) 
     for (element in array) accumulator = operation(accumulator, element)
     return accumulator
 }
+
+/**
+ * Returns an Iterable containing only elements matching the given [predicate].
+ */
+inline fun MultiIntIterable.inlineFilter(predicate: (Int) -> Boolean): MultiIntIterable {
+    val newArray = IntArray(array.size)
+    var index = -1
+    for (element in array) {
+        if (predicate(element)) {
+            newArray[++index] = element
+        }
+    }
+    return MultiIntIterable(newArray.sliceArray(0..index))
+}
