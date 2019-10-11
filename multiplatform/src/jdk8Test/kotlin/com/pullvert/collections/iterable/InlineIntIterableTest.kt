@@ -3,12 +3,12 @@ package com.pullvert.collections
 import org.apache.commons.lang3.SerializationUtils
 import kotlin.test.*
 
-class MultiIntIterableTest {
+class InlineIntIterableTest {
 
     @Test
-    fun verifyMultiIntIterableSpliterator() {
+    fun verifyInlineIntIterableSpliterator() {
         val initialValue = intArrayOf(1, 2)
-        val intIterable = MultiIntIterable(initialValue)
+        val intIterable = InlineIntIterable(initialValue)
         val spliterator = intIterable.spliterator()
         val values = mutableListOf<Int>()
         spliterator.forEachRemaining { value -> values.add(value) }
@@ -18,9 +18,9 @@ class MultiIntIterableTest {
     }
 
     @Test
-    fun verifyMultiIntIterableSerializable() {
+    fun verifyInlineIntIterableSerializable() {
         val initialValue = intArrayOf(1, 2)
-        val original = MultiIntIterable(initialValue)
+        val original = InlineIntIterable(initialValue)
         val copy = SerializationUtils.clone(original)
         assertTrue(original.array.contentEquals(copy.array))
     }

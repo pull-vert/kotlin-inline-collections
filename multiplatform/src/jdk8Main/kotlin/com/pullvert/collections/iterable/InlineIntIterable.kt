@@ -5,7 +5,7 @@ import java.util.*
 
 
 @Suppress("NON_PUBLIC_PRIMARY_CONSTRUCTOR_OF_INLINE_CLASS")
-actual inline class MultiIntIterable @PublishedApi internal actual constructor(
+actual inline class InlineIntIterable @PublishedApi internal actual constructor(
         @PublishedApi internal val array: IntArray
 ) : Iterable<Int>, Serializable {
 

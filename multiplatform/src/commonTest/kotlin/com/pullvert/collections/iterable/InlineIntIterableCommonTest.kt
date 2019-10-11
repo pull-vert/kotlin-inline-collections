@@ -2,12 +2,12 @@ package com.pullvert.collections
 
 import kotlin.test.*
 
-class MultiIntIterableCommonTest {
+class InlineIntIterableCommonTest {
 
     @Test
-    fun verifyMultiIntIterable() {
+    fun verifyInlineIntIterable() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val values = mutableListOf<Int>()
         for (value in singleIntIterable) {
             values.add(value)
@@ -18,7 +18,7 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyRangeToMultiIntIterable() {
+    fun verifyRangeToInlineIntIterable() {
         val initialValue = 1..2
         val intIterable = initialValue.toInlineIntIterable()
         val values = mutableListOf<Int>()
@@ -31,9 +31,9 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyMultiIntIterableForEach() {
+    fun verifyInlineIntIterableForEach() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val values = mutableListOf<Int>()
         singleIntIterable.forEach { value -> values.add(value) }
         assertEquals(2, values.size)
@@ -42,9 +42,9 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyMultiIntIterableInlineForEach() {
+    fun verifyInlineIntIterableInlineForEach() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val values = mutableListOf<Int>()
         singleIntIterable.inlineForEach { value -> values.add(value) }
         assertEquals(2, values.size)
@@ -53,9 +53,9 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyMultiIntIterableMap() {
+    fun verifyInlineIntIterableMap() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val values = singleIntIterable.map { value -> value + 1 }
         assertEquals(2, values.size)
         assertEquals(2, values[0])
@@ -63,9 +63,9 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyMultiIntIterableInlineMap() {
+    fun verifyInlineIntIterableInlineMap() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val newValues = singleIntIterable.inlineMap { value -> value + 1 }
         val values = mutableListOf<Int>()
         for (value in newValues) {
@@ -77,34 +77,34 @@ class MultiIntIterableCommonTest {
     }
 
     @Test
-    fun verifyMultiIntIterableFold() {
+    fun verifyInlineIntIterableFold() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val result = singleIntIterable.fold(0) { result: Int, value: Int -> result + value }
         assertEquals(3, result)
     }
 
     @Test
-    fun verifyMultiIntIterableInlineFold() {
+    fun verifyInlineIntIterableInlineFold() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val result = singleIntIterable.inlineFold(0) { result: Int, value: Int -> result + value }
         assertEquals(3, result)
     }
 
     @Test
-    fun verifyMultiIntIterableFilter() {
+    fun verifyInlineIntIterableFilter() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val values = singleIntIterable.filter { value -> value % 2 == 0 }
         assertEquals(1, values.size)
         assertEquals(2, values[0])
     }
 
     @Test
-    fun verifyMultiIntIterableInlineFilter() {
+    fun verifyInlineIntIterableInlineFilter() {
         val initialValue = intArrayOf(1, 2)
-        val singleIntIterable = MultiIntIterable(initialValue)
+        val singleIntIterable = InlineIntIterable(initialValue)
         val newValues = singleIntIterable.inlineFilter { value -> value % 2 == 0 }
         val values = mutableListOf<Int>()
         for (value in newValues) {
