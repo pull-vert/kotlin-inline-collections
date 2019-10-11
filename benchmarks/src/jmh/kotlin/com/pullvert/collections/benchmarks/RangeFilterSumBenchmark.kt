@@ -1,6 +1,8 @@
 package com.pullvert.collections.benchmarks
 
 import com.pullvert.collections.MultiIntIterable
+import com.pullvert.collections.inlineFilter
+import com.pullvert.collections.inlineFold
 import org.openjdk.jmh.annotations.*
 import java.util.concurrent.TimeUnit
 
@@ -38,6 +40,6 @@ open class RangeFilterSumBenchmark {
     @Benchmark
     fun testInlineIntIterable(): Int =
             MultiIntIterable(1..N) // todo MultiIntIterable from IntRange
-                    .filter { it.isGood() }
-                    .fold(0, { a, b -> a + b })
+                    .inlineFilter { it.isGood() }
+                    .inlineFold(0, { a, b -> a + b })
 }
