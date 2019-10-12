@@ -11,3 +11,4 @@ Multiplatform Kotlin inline classes for collections
 * [eclipse-collections](https://github.com/eclipse/eclipse-collections/blob/master/eclipse-collections/src/main/java/org/eclipse/collections/impl/list/immutable/ImmutableArrayList.java)
 * Kotlin collections
 * Java collections
+* lot of fun and interesting problems : https://www.techiedelight.com
