@@ -26,6 +26,15 @@ inline fun IntRange.toInlineIntIterable(): InlineIntIterable {
 inline fun IntArray.toInlineIntIterable() = InlineIntIterable(this)
 
 /**
+ * Creates a new InlineIntIterable of the specified [size], where each element is calculated by calling the specified
+ * [init] function.
+ *
+ * The function [init] is called for each InlineIntIterable element sequentially starting from the first one.
+ * It should return the value for an InlineIntIterable element given its index.
+ */
+inline fun newInlineIntIterable(size: Int, noinline init: (Int) -> Int) = InlineIntIterable(IntArray(size, init))
+
+/**
  * Performs the given [action] on each element directly in the original array.
  */
 inline fun InlineIntIterable.inlineForEach(action: (Int) -> Unit) {
@@ -34,7 +43,7 @@ inline fun InlineIntIterable.inlineForEach(action: (Int) -> Unit) {
 
 /**
  * Returns a new InlineIntIterable containing the results of applying the given [transform] function
- * to each element directly in the original array.
+ * to each element and storing results in a new array.
  */
 inline fun InlineIntIterable.inlineMap(transform: (Int) -> Int): InlineIntIterable {
     val newArray = IntArray(array.size)
@@ -65,4 +74,17 @@ inline fun InlineIntIterable.inlineFilter(predicate: (Int) -> Boolean): InlineIn
         }
     }
     return InlineIntIterable(newArray.sliceArray(0..index))
+}
+
+// Specific operations on Int
+
+/**
+ * Returns the sum of all elements in the collection.
+ */
+public fun InlineIntIterable.inlineSum(): Int {
+    var sum: Int = 0
+    for (element in array) {
+        sum += element
+    }
+    return sum
 }
