@@ -40,7 +40,7 @@ open class RangeFilterSumBenchmark {
 
     @Setup
     fun setup() {
-        rangeArray = IntArray(range.endInclusive - range.start + 1)
+        rangeArray = IntArray(range.last - range.first + 1)
         for ((index, value) in range.withIndex()) {
             rangeArray[index] = value
         }
