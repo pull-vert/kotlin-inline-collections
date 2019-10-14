@@ -12,12 +12,5 @@ All benchmarks are based on (or copied from) [David Karnok work](https://github.
 ### Results
 
 ```
-FlowPlaysScrabbleBase.play    avgt   14   94.845 ± 1.345  ms/op
-FlowPlaysScrabbleOpt.play     avgt   14   20.587 ± 0.173  ms/op
-
-RxJava2PlaysScrabble.play     avgt   14  114.253 ± 3.450  ms/op
-RxJava2PlaysScrabbleOpt.play  avgt   14   30.795 ± 0.144  ms/op
-
-SaneFlowPlaysScrabble.play    avgt   14   18.825 ± 0.231  ms/op
-SequencePlaysScrabble.play    avgt   14   13.787 ± 0.111  ms/op
+SequencePlaysScrabble.play  avgt    7  35,695 ▒ 0,446  ms/op
 ```
