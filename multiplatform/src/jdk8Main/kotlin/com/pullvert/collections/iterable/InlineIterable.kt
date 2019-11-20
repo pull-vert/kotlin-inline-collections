@@ -12,6 +12,11 @@ actual inline class InlineIterable<T> @PublishedApi internal actual constructor(
     actual override fun iterator() = array.iterator()
 
     /**
+     * Companion object for [InlineIterable] class that contains its constructor functions
+     */
+    actual companion object {}
+
+    /**
      * TODO make a better implementation
      */
     override fun spliterator(): Spliterator<T> {

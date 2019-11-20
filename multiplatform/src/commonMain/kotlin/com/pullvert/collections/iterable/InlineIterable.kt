@@ -7,12 +7,21 @@ expect inline class InlineIterable<T> @PublishedApi internal constructor(
         @PublishedApi internal val array: Array<T>
 ) : Iterable<T>, Serializable {
     override fun iterator(): Iterator<T>
+
+    /**
+     * Companion object for [InlineIterable] class that contains its constructor functions
+     */
+    companion object
 }
 
 /**
  * wrap the given array in a [InlineIntIterable]
  */
 inline fun <T> Array<T>.toInlineIterable() = InlineIterable(this)
+
+inline fun <reified T> InlineIterable.Companion.of(vararg value: T): InlineIterable<out T> = InlineIterable(value)
+
+inline fun <T> InlineIterable.Companion.fromArray(array: Array<T>): InlineIterable<out T> = InlineIterable(array)
 
 /**
  * Performs the given [action] on each element directly in the original array.
