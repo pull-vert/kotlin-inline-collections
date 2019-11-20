@@ -1,9 +1,9 @@
-//pluginManagement {
-//    repositories {
-//        gradlePluginPortal()
-//        maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
-//    }
-//}
+pluginManagement {
+    plugins {
+        id 'org.jetbrains.kotlin.multiplatform' version "$kotlin_plugin_version"
+        id 'org.jetbrains.kotlin.jvm' version "$kotlin_plugin_version"
+    }
+}
 
 rootProject.name = 'kotlin-inline-collections'
 
