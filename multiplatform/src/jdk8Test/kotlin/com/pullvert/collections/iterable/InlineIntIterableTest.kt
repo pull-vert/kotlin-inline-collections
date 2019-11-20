@@ -1,7 +1,9 @@
 package com.pullvert.collections
 
 import org.apache.commons.lang3.SerializationUtils
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class InlineIntIterableTest {
 
@@ -23,5 +25,6 @@ class InlineIntIterableTest {
         val original = InlineIntIterable(initialValue)
         val copy = SerializationUtils.clone(original)
         assertTrue(original.array.contentEquals(copy.array))
+//        assertEquals(original, copy) // uncomment when this feature is available
     }
 }
