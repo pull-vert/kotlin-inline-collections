@@ -11,7 +11,7 @@ compileJmhKotlin {
 }
 
 // It is better to use the following to run benchmarks, otherwise you may get unexpected errors:
-// ./gradlew --no-daemon cleanJmhJar jmh -Pjmh="MyBenchmark"
+// ./gradlew --no-daemon cleanJmhJar jmh -Pjmh="RangeFilterSumBenchmark"
 jmh {
     jmhVersion = '1.21'
     duplicateClassesStrategy DuplicatesStrategy.INCLUDE
