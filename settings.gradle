@@ -1,4 +1,9 @@
 pluginManagement {
+    repositories {
+        //maven { url 'https://dl.bintray.com/kotlin/kotlin-dev' }
+        maven { url "https://kotlin.bintray.com/kotlin-eap" }
+        gradlePluginPortal()
+    }
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version "$kotlin_plugin_version"
         id 'org.jetbrains.kotlin.jvm' version "$kotlin_plugin_version"
@@ -7,6 +12,6 @@ pluginManagement {
 
 rootProject.name = 'kotlin-inline-collections'
 
-include 'benchmarks'
+//include 'benchmarks'
 
 include 'multiplatform'

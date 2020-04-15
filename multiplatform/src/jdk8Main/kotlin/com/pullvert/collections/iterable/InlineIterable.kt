@@ -23,12 +23,13 @@ actual inline class InlineIterable<T> @PublishedApi internal actual constructor(
         return Spliterators.spliteratorUnknownSize((array as Array<T>).iterator(), 0)
     }
 
-//    fixme : hashcode/equals not supported in 1.3.50 (nor 1.3.60-eap-22 nor 1.3.70-dev-260)
-//    companion object {
-//        private const val serialVersionUID: Long = 1L
-//    }
-//
-//    override fun hashCode(): Int {
-//        return Arrays.hashCode(values)
-//    }
+    //    fixme : hashcode/equals not supported in 1.3.50 (nor 1.3.60-eap-22 nor 1.3.70-dev-260)
+
+    /*override fun hashCode(): Int {
+        return (array as Array<T>).contentHashCode()
+    }
+
+    operator fun equals(other: Any?): Boolean {
+        return (array as Array<T>).contentEquals(other as Array<out Any>)
+    }*/
 }

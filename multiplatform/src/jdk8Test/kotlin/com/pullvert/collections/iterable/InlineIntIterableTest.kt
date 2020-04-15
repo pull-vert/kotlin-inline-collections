@@ -25,6 +25,6 @@ class InlineIntIterableTest {
         val original = InlineIntIterable(initialValue)
         val copy = SerializationUtils.clone(original)
         assertTrue(original.array.contentEquals(copy.array))
-//        assertEquals(original, copy) // uncomment when this feature is available
+        //assertEquals(original, copy) // uncomment when this feature is available
     }
 }

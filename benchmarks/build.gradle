@@ -1,6 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm'
-    id "me.champeau.gradle.jmh" version "0.5.0-rc-2"
+    id "me.champeau.gradle.jmh" version "0.5.0"
 }
 
 compileJmhKotlin {
@@ -23,8 +23,8 @@ jmh {
 }
 
 dependencies {
-    compile "org.openjdk.jmh:jmh-core:1.21"
-    compile project(':multiplatform')
+    implementation "org.openjdk.jmh:jmh-core:1.21"
+    implementation project(':multiplatform')
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 }
