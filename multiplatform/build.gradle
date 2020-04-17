@@ -67,6 +67,11 @@ kotlin {
 //    js()
 }
 
+// Force strict explicit API for better source code readability
+/*kotlin.sourceSets.matching({ it.name.contains("Main") }).all { srcSet ->
+    project.ext.set("kotlin.mpp.freeCompilerArgsForSourceSet.${srcSet.name}", "-Xexplicit-api=strict")
+}*/
+
 jdk8Test {
     useJUnitPlatform()
     testLogging {
